@@ -1,0 +1,49 @@
+For a given two strings, 'str1' and 'str2', check whether they are a permutation of each other or not.
+Permutations of each other
+Two strings are said to be a permutation of each other when either of the string's characters can be rearranged so that it becomes identical to the other one.
+
+Example: 
+str1= "sinrtg" 
+str2 = "string"
+
+The character of the first string(str1) can be rearranged to form str2 and hence we can say that the given strings are a permutation of each other.
+
+
+
+
+public class Solution {
+
+	public static boolean isPermutation(String str1, String str2) {
+		//Your code goes here
+        
+        int arr[]=new int[255];
+        char ch=' ';
+        int k=0;
+        boolean isp=false;
+        for (int i=0;i<str1.length();i++){
+            
+            ch=str1.charAt(i);
+            k=(int)ch;
+            arr[k]++;
+        }
+        for (int i=0;i<str2.length();i++){
+            
+            ch=str2.charAt(i);
+            k=(int)ch;
+            arr[k]--;
+        }
+        for(int i =0;i<arr.length;i++){
+            if(arr[i]==0){
+                isp=true;
+            }
+            else{
+                isp=false;
+                break;
+            }
+            
+        }
+        
+        
+        return isp;
+	}
+}

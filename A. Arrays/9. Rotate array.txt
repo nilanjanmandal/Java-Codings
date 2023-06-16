@@ -1,0 +1,44 @@
+You have been given a random integer array/list(ARR) of size N. Write a function that rotates the given array/list by D elements(towards the left).
+
+
+public class Solution {  
+
+    public static void rotate(int[] arr, int d) {
+        for (int j =0;j<d;j++){
+            for (int i =0;i<arr.length-1;i++){
+                int temp=arr[i];
+                arr[i]=arr[i+1];
+                arr[i+1]=temp;
+
+            }
+        }
+    }
+
+}
+
+
+
+
+
+public class Solution {  
+
+    public static void rotate(int[] arr, int d) {
+        int l=arr.length;
+        Solution.rev(arr,0,d);
+        Solution.rev(arr,d,l+d);
+        Solution.rev(arr,0,l);
+    }
+    
+    public static void rev(int[] arr, int s,int e) {
+        for (int j =s;j<e/2;j++){
+            int front = j;
+            int back = e-j-1;
+            
+            int temp = arr[front];
+            arr[front]=arr[back];
+            arr[back]=temp;
+        }
+    }
+    
+
+}

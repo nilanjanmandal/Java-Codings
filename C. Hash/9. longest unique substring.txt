@@ -1,0 +1,47 @@
+import java.util.*;
+class HelloWorld{
+public static void main(String[] args)
+{
+	String str = "ABDEBFGABEF";
+	System.out.println("Input string is " + str);
+	longestUniqueString(str);
+}
+public static void longestUniqueString(String str)
+{
+    HashSet<Character> visits = new HashSet<>();
+    int counter=0,longestcounter=0;
+    String subStr="",longestSubStr="";
+	int strLength = str.length();
+	if(strLength==0){
+	    System.out.println("Length: 0 , Substring:");
+	    return;
+	}
+	if(strLength==1){
+	    System.out.println("Length: 1 , Substring:"+str);
+	    return;
+	}
+	for(int i = 0; i < strLength; i++){
+		for(int j = i; j < strLength; j++){
+		    char ch=str.charAt(j);
+		    if(visits.contains(ch)){
+		        if(counter>longestcounter){
+    		        longestSubStr=subStr;
+    		        longestcounter=counter;
+		        }
+		        subStr="";
+		        counter=0;
+		        visits.clear();
+		        break;
+		    }
+		    else{
+		        visits.add(ch);
+		        counter++;
+		        subStr=subStr+ch;
+		    }
+		}
+		
+	}
+	System.out.println("Length:" + longestcounter +", Substring:"+longestSubStr);
+			
+}
+}

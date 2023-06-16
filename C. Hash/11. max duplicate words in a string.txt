@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Solution {
+
+    public static void main(String[] args) {
+
+        List<String> nameList= new ArrayList<String>();
+        nameList.add("abc");
+        nameList.add("bca");
+        nameList.add("abc");
+        nameList.add("abc");
+        nameList.add("def");
+        nameList.add("abc");
+
+
+        String maxName="";
+        int maxFreq=0;
+
+        HashMap<String, Integer> map= new HashMap<String,Integer>();
+        for(String name:nameList){
+            if(map.containsKey(name)){
+                int j = map.get(name);
+                map.put(name,j+1);
+                j=0;
+            }
+            else{
+                map.put(name,1);
+            }
+            if(map.get(name)> maxFreq){
+                maxFreq=map.get(name);
+                maxName=name;
+
+            }
+        }
+
+        System.out.println(maxName+":"+maxFreq);
+    }
+
+}

@@ -1,0 +1,28 @@
+Public static boolean isAnagram(String a, Strig b){
+
+	if(a.length()!=b.length())
+		return false;
+
+	HashMap<Character, Integer> map= new HashMap<>();
+
+	for(int i = 0; i<a.length();i++){
+		if(map.containsKey(a.charAT(i)))
+			map.put(a.charAt(i),map.get(a.charAt(i))+1)
+		else
+			map.put(a.charAt(i),1)
+	}
+	
+	for(int i = 0; i<b.length();i++){
+		if(map.containsKey(b.charAT(i)))
+			map.put(a.charAt(i),map.get(b.charAt(i))-1)
+		else
+			return false;
+	}
+	Set <Character> keys = map.keySet();
+	for (Character key:keys){
+		if (map.get(Key)!=0){
+			return false;
+		}
+	}
+	return true;
+}

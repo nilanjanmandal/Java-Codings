@@ -1,0 +1,37 @@
+Write a program to do basic string compression. For a character which is consecutively repeated more than once, replace consecutive duplicate occurrences with the count of repetitions.
+Example:
+If a string has 'x' repeated 5 times, replace this "xxxxx" with "x5".
+
+The string is compressed only when the repeated character count is more than 1.
+
+
+
+public class Solution {
+	public static String getCompressedString(String str) {
+		
+        str=str+" ";
+        String nstr="";
+        nstr=nstr+""+str.charAt(0);
+        char ch1,ch2;
+        int c=1;
+        for (int i =1;i<str.length();i++){
+            ch1= str.charAt(i-1);
+            ch2= str.charAt(i);
+            
+            if(ch1==ch2){
+                c++;
+            }
+            else{
+                if(c>1){
+                	nstr=nstr+""+String.valueOf(c);
+                	c=1;
+                }
+                nstr=nstr+ch2;
+            }
+            
+        }
+        nstr=nstr.trim();
+        return nstr;
+	}
+
+}

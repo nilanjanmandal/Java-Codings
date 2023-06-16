@@ -1,0 +1,32 @@
+For a given string(str), remove all the consecutive duplicate characters.
+Example:
+Input String: "aaaa"
+Expected Output: "a"
+
+Input String: "aabbbcc"
+Expected Output: "abc"
+
+
+
+
+public class Solution {
+
+	public static String removeConsecutiveDuplicates(String str) {
+        
+        String nstr=""+str.charAt(0);
+        char ch1,ch2;
+        for (int i =1;i<str.length();i++){
+            ch1= str.charAt(i-1);
+            ch2= str.charAt(i);
+             if(ch1==ch2){
+                 nstr=nstr+"";
+             }
+             else{
+                 nstr=nstr+ch2;                 
+             }
+            
+        }
+        return nstr;
+	}
+
+}
